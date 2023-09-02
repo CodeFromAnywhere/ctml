@@ -43,7 +43,7 @@ export default {
     const ext = path.parse(pathname).ext;
     const realName = name === "" ? "index" : name;
 
-    if (ext !== ".html") {
+    if (ext !== ".html" && name !== "") {
       if (fs.existsSync(path.join(root, pathname))) {
         return new Response(Bun.file(path.join(root, pathname)));
       }

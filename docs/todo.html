@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Page: parser.md</title>
+    <title>Page: todo.md</title>
     <link rel="stylesheet" href="css.css" />
     <script>
       //  @ts-check
@@ -219,38 +219,42 @@ preventDefault();
         >Open Menu</a
       >
 
-      <h1 id="parsingrules">Parsing Rules</h1>
-      <ol>
-        <li>html is holy. All html tags are reserved.</li>
+      <h1 id="todo">TODO</h1>
+      <h1 id="docs">Docs</h1>
+      <ul>
+        <li>concepts overview (in <code>md</code>)</li>
+        <li>add short tutorial</li>
         <li>
-          overwriting an html tag can be done in order to make it act
-          differently everywhere, for example if you want to apply a style.
+          try hosting it on cloudflares edge in a way that it runs the server
+        </li>
+      </ul>
+      <h1 id="markdown">Markdown</h1>
+      <ul>
+        <li>exposing code files in <code>.md</code></li>
+        <li>frontmatter in markdown as variables for the wrapper</li>
+        <li>
+          markdown-in-html with special tag <code>&lt;markdown&gt;</code> or so
+        </li>
+        <li>ability to add custom md parser to the server</li>
+        <li>
+          ensure that generated html from <code>.md</code> is still parsed again
+        </li>
+      </ul>
+      <h1 id="parsing">Parsing:</h1>
+      <ul>
+        <li>
+          support for folders while location of a file isn't important as the
+          page is served without folder prefix
         </li>
         <li>
-          every tag that is not official html refers to (and will 'include') the
-          closest filename that has the same name as the tag, regardless of its
-          extension
+          functionality to match against most nearby file with name (unique
+          naming not enforced)
         </li>
-        <li>
-          you can specify the extension in the tagname if you want to be
-          explicit but by default, the priority order is used: htm, json, md,
-          ts, js. html is never included as it is the extension used after
-          parsing.
-        </li>
-        <li>
-          variables can be used with <code>${variable}</code> syntax (like in
-          js) and can be passed into html tags as its attributes.
-        </li>
-        <li>
-          included markdown is parsed to html. markdown can also use html and
-          ctml
-        </li>
-        <li>
-          inluded json is mapped if an array, and its object properties become
-          available as variables (item is main value if it's not an object). csv
-          is also a first-class citizen and works the same.
-        </li>
-      </ol>
+        <li>parser performance</li>
+        <li>add difference between dev and prod</li>
+        <li>only inject auto refresh in dev-mode</li>
+        <li>in prod, it only rebuilds stuff after it's stale</li>
+      </ul>
     </div>
   </body>
 </html>
