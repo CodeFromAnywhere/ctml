@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Page: walkthrough.md</title>
+    <title>Page: actions.md</title>
     <link rel="stylesheet" href="css.css" />
     <script>
       //  @ts-check
@@ -187,8 +187,38 @@ document.getElementById('discord')?.remove();
         onclick="openMenu();"
         >Open Menu</a
       >
-      <h1 id="walkthrough">Walkthrough</h1>
-      <p>Coming soon…</p>
+      <h1 id="actions">Actions</h1>
+      <p>
+        If you want to have a website where the user can perform actions (e.g.
+        crud actions into a db) you need a way to receive events from your
+        webpage.
+      </p>
+      <p>
+        A good way to do this with html is - and always has been - the
+        <code>&lt;form&gt;</code> element.
+      </p>
+      <p>
+        An example can be found <a href="books.html">here</a>. If you go there
+        and click through to "add book" you'll find a form to add a book into
+        the list.
+      </p>
+      <p>
+        The code for adding a book consists of
+        <a href="add-book.htm">add-book.htm</a> and
+        <a href="add-book.ts">add-book.ts</a>.
+      </p>
+      <p>
+        How it works, is that every post request on the server is catched,
+        processed, and the result is posted back to the user via a page
+        redirect. The response of the backend function will be available in the
+        query parameters of the url of the page where the user goes to via the
+        form action.
+      </p>
+      <p>
+        E.g. if I add a book I end up here:
+        <code>/books.html?isSuccessful=true&amp;message=Book%20Added</code>. You
+        can use regular javascript to do anything you want with this response.
+      </p>
       <br />
       <br />
       <br />

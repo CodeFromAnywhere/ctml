@@ -5,6 +5,7 @@ export const pagesToBuild = [
   "walkthrough.md",
   "serving.md",
   "state.md",
+  "actions.md",
   "todo.md",
   "books.htm",
   "movies.htm",
