@@ -188,7 +188,28 @@ document.getElementById('discord')?.remove();
         >Open Menu</a
       >
       <h1 id="walkthrough">Walkthrough</h1>
-      <p>Coming soon…</p>
+      <p>
+        Basically CTML allows you to refer to other files by refering to the
+        files using the html syntax.
+      </p>
+      <p><img src="./overview.drawio.png" alt="overview" /></p>
+      <p>
+        The parser will always look in the codebase for an <code>.htm</code> or
+        <code>.md</code> or <code>.csv</code> or <code>.json</code> file, for
+        any html tag that occurs.
+      </p>
+      <ul>
+        <li><code>.htm</code> is further parsed</li>
+        <li><code>.md</code> is parsed to html</li>
+        <li>
+          <code>.csv</code> and <code>.json</code> are looped over, and children
+          are repeated for each item
+        </li>
+      </ul>
+      <p>
+        These simple rules allow you to build with building blocks much like in
+        React, while staying much closer to actual html.
+      </p>
       <br />
       <br />
       <br />
