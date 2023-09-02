@@ -1,0 +1,221 @@
+<html>
+  <head>
+    <title>Page: speed.md</title>
+    <link rel="stylesheet" href="css.css" />
+    <script>
+      //  @ts-check
+
+      // useful little script to ensure the page refreshes when we go there again.
+      // especially useful as "devmode"
+      window.onblur = function () {
+        window.onfocus = function () {
+          window.location = self.location;
+        };
+      };
+    </script>
+    <script>
+      const closeMenu = () => {
+        document
+          .getElementById('menu')
+          ?.style.setProperty('visibility', 'hidden');
+        document.getElementById('open-menu')?.removeAttribute('style');
+      };
+
+      const openMenu = () => {
+        document
+          .getElementById('menu')
+          ?.style.setProperty('visibility', 'visible');
+        document
+          .getElementById('open-menu')
+          ?.style.setProperty('visibility', 'hidden');
+      };
+
+      window.onload = () => {
+        console.log(localStorage.getItem('isMenuHidden'));
+        if (localStorage.getItem('isMenuHidden')) {
+          closeMenu();
+        }
+      };
+    </script>
+  </head>
+
+  <body style="margin: 0; font-family: 'Courier New', Courier, monospace">
+    <html>
+      <head></head>
+      <body>
+        <nav
+          id="menu"
+          style="
+            margin: 0;
+            padding: 0;
+            width: 25%;
+            display: block;
+            background-color: #404040;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+          "
+        >
+          <div
+            style="
+              flex: auto;
+              flex-direction: row;
+              justify-content: space-between;
+            "
+          >
+            <div style="flex: auto; flex-direction: row; padding: 10px">
+              <img
+                id="discord"
+                onclick="
+//alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
+//document.getElementById('discord').remove();
+
+document.getElementById('discord').setAttribute('style','background-color: aqua;');
+
+preventDefault();
+      "
+                src="discord.svg"
+                width="40"
+                height="40"
+              />
+
+              <a href="https://github.com/CodeFromAnywhere/ctml"
+                ><img src="github.svg" width="40" height="40"
+              /></a>
+            </div>
+
+            <span
+              onclick="
+    closeMenu(); 
+    localStorage.setItem('isMenuHidden','true');
+    "
+              >CLOSE</span
+            >
+          </div>
+
+          <ul style="list-style-type: none; margin: 0; padding: 0">
+            <span>
+              <a style="text-decoration: none" title="Home" href="index.html">
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Home
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="My story"
+                href="story.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  My story
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="Parser"
+                href="parser.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Parser
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="Serving it"
+                href="serving.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Serving it
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a style="text-decoration: none" title="State" href="state.html">
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  State
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="Parsetime"
+                href="parsetime.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Parsetime
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a style="text-decoration: none" title="Speed" href="speed.html">
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Speed
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a style="text-decoration: none" title="Books" href="books.html">
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Books
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="Movies"
+                href="movies.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Movies
+                </li>
+              </a>
+            </span>
+          </ul>
+        </nav>
+        <style>
+          .menu-item:hover {
+            background-color: darkblue;
+          }
+
+          .menu-item:active {
+            background-color: darkgreen;
+          }
+        </style>
+      </body>
+    </html>
+
+    <div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
+      <a
+        id="open-menu"
+        style="visibility: hidden"
+        href="#open-menu"
+        onclick="
+     openMenu();
+     localStorage.removeItem('isMenuHidden'); 
+      "
+        >Open Menu</a
+      >
+
+      <p>
+        Once we have html on the edge, things will be fast. But imagine this: we
+        use https://web.dev/link-prefetch/ to prefetch the entire website so
+        everything is literally instant.
+      </p>
+    </div>
+  </body>
+</html>

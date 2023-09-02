@@ -1,0 +1,251 @@
+<html>
+  <head>
+    <title>Page: story.md</title>
+    <link rel="stylesheet" href="css.css" />
+    <script>
+      //  @ts-check
+
+      // useful little script to ensure the page refreshes when we go there again.
+      // especially useful as "devmode"
+      window.onblur = function () {
+        window.onfocus = function () {
+          window.location = self.location;
+        };
+      };
+    </script>
+    <script>
+      const closeMenu = () => {
+        document
+          .getElementById('menu')
+          ?.style.setProperty('visibility', 'hidden');
+        document.getElementById('open-menu')?.removeAttribute('style');
+      };
+
+      const openMenu = () => {
+        document
+          .getElementById('menu')
+          ?.style.setProperty('visibility', 'visible');
+        document
+          .getElementById('open-menu')
+          ?.style.setProperty('visibility', 'hidden');
+      };
+
+      window.onload = () => {
+        console.log(localStorage.getItem('isMenuHidden'));
+        if (localStorage.getItem('isMenuHidden')) {
+          closeMenu();
+        }
+      };
+    </script>
+  </head>
+
+  <body style="margin: 0; font-family: 'Courier New', Courier, monospace">
+    <html>
+      <head></head>
+      <body>
+        <nav
+          id="menu"
+          style="
+            margin: 0;
+            padding: 0;
+            width: 25%;
+            display: block;
+            background-color: #404040;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+          "
+        >
+          <div
+            style="
+              flex: auto;
+              flex-direction: row;
+              justify-content: space-between;
+            "
+          >
+            <div style="flex: auto; flex-direction: row; padding: 10px">
+              <img
+                id="discord"
+                onclick="
+//alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
+//document.getElementById('discord').remove();
+
+document.getElementById('discord').setAttribute('style','background-color: aqua;');
+
+preventDefault();
+      "
+                src="discord.svg"
+                width="40"
+                height="40"
+              />
+
+              <a href="https://github.com/CodeFromAnywhere/ctml"
+                ><img src="github.svg" width="40" height="40"
+              /></a>
+            </div>
+
+            <span
+              onclick="
+    closeMenu(); 
+    localStorage.setItem('isMenuHidden','true');
+    "
+              >CLOSE</span
+            >
+          </div>
+
+          <ul style="list-style-type: none; margin: 0; padding: 0">
+            <span>
+              <a style="text-decoration: none" title="Home" href="index.html">
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Home
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="My story"
+                href="story.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  My story
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="Parser"
+                href="parser.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Parser
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="Serving it"
+                href="serving.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Serving it
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a style="text-decoration: none" title="State" href="state.html">
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  State
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="Parsetime"
+                href="parsetime.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Parsetime
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a style="text-decoration: none" title="Speed" href="speed.html">
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Speed
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a style="text-decoration: none" title="Books" href="books.html">
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Books
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="Movies"
+                href="movies.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Movies
+                </li>
+              </a>
+            </span>
+          </ul>
+        </nav>
+        <style>
+          .menu-item:hover {
+            background-color: darkblue;
+          }
+
+          .menu-item:active {
+            background-color: darkgreen;
+          }
+        </style>
+      </body>
+    </html>
+
+    <div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
+      <a
+        id="open-menu"
+        style="visibility: hidden"
+        href="#open-menu"
+        onclick="
+     openMenu();
+     localStorage.removeItem('isMenuHidden'); 
+      "
+        >Open Menu</a
+      >
+
+      <p>
+        When I was 10 years old and learned html, I always wondered why I
+        couldn't create my own elements, or add properties.
+      </p>
+      <p>
+        Much later I learned React and saw that Facebook made it possible. But
+        at what cost? JS Fatigue. JS solves all problems, but it comes at a
+        cost: complexity.
+      </p>
+      <p>
+        That's why I wanted to give this a go: a more intuitive simplistic way
+        to write full-stack apps.
+      </p>
+      <p>
+        I don't know if it will work, but the idea is simple: avoid javascript
+        at all cost, write as much as possible in component-driven html,
+        markdown, and datafiles like csv and json.
+      </p>
+      <p>Design Goals:</p>
+      <ul>
+        <li>Minimise source token size</li>
+        <li>
+          LoB: Locality of Behavior for increased comprehension (Read more
+          <a href="https://htmx.org/essays/locality-of-behaviour/">here</a> and
+          <a href="https://www.dreamsongs.com/Files/PatternsOfSoftware.pdf"
+            >here</a
+          >)
+        </li>
+        <li>Build an AI friendly internet</li>
+        <li>
+          Having fun building a personal website in a language no-one knows
+        </li>
+      </ul>
+      <p>Let me know if you like it. :D</p>
+      <p>gfdgdfsgfdgfgagsfgasge</p>
+    </div>
+  </body>
+</html>

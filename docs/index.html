@@ -1,0 +1,256 @@
+<html>
+  <head>
+    <title>Hello world</title>
+    <link rel="stylesheet" href="css.css" />
+    <script>
+      //  @ts-check
+
+      // useful little script to ensure the page refreshes when we go there again.
+      // especially useful as "devmode"
+      window.onblur = function () {
+        window.onfocus = function () {
+          window.location = self.location;
+        };
+      };
+    </script>
+    <script>
+      const closeMenu = () => {
+        document
+          .getElementById('menu')
+          ?.style.setProperty('visibility', 'hidden');
+        document.getElementById('open-menu')?.removeAttribute('style');
+      };
+
+      const openMenu = () => {
+        document
+          .getElementById('menu')
+          ?.style.setProperty('visibility', 'visible');
+        document
+          .getElementById('open-menu')
+          ?.style.setProperty('visibility', 'hidden');
+      };
+
+      window.onload = () => {
+        console.log(localStorage.getItem('isMenuHidden'));
+        if (localStorage.getItem('isMenuHidden')) {
+          closeMenu();
+        }
+      };
+    </script>
+  </head>
+
+  <body style="margin: 0; font-family: 'Courier New', Courier, monospace">
+    <html>
+      <head></head>
+      <body>
+        <nav
+          id="menu"
+          style="
+            margin: 0;
+            padding: 0;
+            width: 25%;
+            display: block;
+            background-color: #404040;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+          "
+        >
+          <div
+            style="
+              flex: auto;
+              flex-direction: row;
+              justify-content: space-between;
+            "
+          >
+            <div style="flex: auto; flex-direction: row; padding: 10px">
+              <img
+                id="discord"
+                onclick="
+//alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
+//document.getElementById('discord').remove();
+
+document.getElementById('discord').setAttribute('style','background-color: aqua;');
+
+preventDefault();
+      "
+                src="discord.svg"
+                width="40"
+                height="40"
+              />
+
+              <a href="https://github.com/CodeFromAnywhere/ctml"
+                ><img src="github.svg" width="40" height="40"
+              /></a>
+            </div>
+
+            <span
+              onclick="
+    closeMenu(); 
+    localStorage.setItem('isMenuHidden','true');
+    "
+              >CLOSE</span
+            >
+          </div>
+
+          <ul style="list-style-type: none; margin: 0; padding: 0">
+            <span>
+              <a style="text-decoration: none" title="Home" href="index.html">
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Home
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="My story"
+                href="story.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  My story
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="Parser"
+                href="parser.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Parser
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="Serving it"
+                href="serving.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Serving it
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a style="text-decoration: none" title="State" href="state.html">
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  State
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="Parsetime"
+                href="parsetime.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Parsetime
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a style="text-decoration: none" title="Speed" href="speed.html">
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Speed
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a style="text-decoration: none" title="Books" href="books.html">
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Books
+                </li>
+              </a>
+            </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="Movies"
+                href="movies.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Movies
+                </li>
+              </a>
+            </span>
+          </ul>
+        </nav>
+        <style>
+          .menu-item:hover {
+            background-color: darkblue;
+          }
+
+          .menu-item:active {
+            background-color: darkgreen;
+          }
+        </style>
+      </body>
+    </html>
+
+    <div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
+      <a
+        id="open-menu"
+        style="visibility: hidden"
+        href="#open-menu"
+        onclick="
+     openMenu();
+     localStorage.removeItem('isMenuHidden'); 
+      "
+        >Open Menu</a
+      >
+
+      <h1 style="color: brown">~~~ CTML ~~~</h1>
+
+      <h1 id="helloworld">Hello world</h1>
+      <p>
+        How are you doing. This is ctml. ctml stands for component-driven html
+        and aims to simplify boilerplate and dx for edge websites.
+      </p>
+      <p>
+        I don't know yet exactly where I want to go with this. ctml could be
+        component driven html with as little boilerplate as possible.
+      </p>
+      <p>
+        Something like mdx but i don't want to need a server. It should build to
+        html quickly, but I want to be in control of how it looks.
+      </p>
+      <p>
+        What if it would support md, js, ts, json, csv, xml, all out of the box?
+        That would be pretty cool.
+      </p>
+      <h2 id="nexttime">Next time..</h2>
+      <p>
+        I've done this in a long night plus most of the subsequent day. It is
+        still a hobby project though. Next time I should fix the weird server
+        error that prevents me from making everything realtime.
+      </p>
+      <p>
+        Another key thing would be to make the parser more performant. For some
+        reason, it's not as performant as I'd want.
+      </p>
+      <p>Last but not least,</p>
+      <ul>
+        <li>deployment</li>
+        <li>connecting this to a website + github</li>
+        <li>
+          executing server-side js/ts code for a post request, and getting a
+          server-response back
+        </li>
+        <li>frontmatter in markdown as variables for the wrapper?</li>
+      </ul>
+      <p>:D</p>
+    </div>
+  </body>
+</html>
