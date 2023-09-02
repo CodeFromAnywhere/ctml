@@ -3,7 +3,7 @@
 <head>
   <title>${title}</title>
   <link rel="stylesheet" href="css.css" />
-
+  <!-- https://darkmodejs.learn.uno -->
   <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
   <script>
     function addDarkmodeWidget() {
@@ -11,17 +11,9 @@
     }
     window.addEventListener('load', addDarkmodeWidget);
   </script>
-  <!-- <script>
-    //  @ts-check
 
-    // useful little script to ensure the page refreshes when we go there again.
-    // especially useful as "devmode"
-    window.onblur = function () {
-      window.onfocus = function () {
-        window.location = self.location;
-      }
-    };
-  </script> -->
+  <devmode></devmode>
+
   <script>
     const closeMenu = () => {
       document.getElementById('menu')?.style.setProperty('visibility', 'hidden')
@@ -47,7 +39,9 @@
 
 <body
   style="margin:0; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+
   <menu></menu>
+
   <div style="margin-left: 25%; padding: 1px 32px; height: 1000px;">
     <a id="open-menu" style="visibility: hidden;" href="#open-menu" onclick="openMenu();">Open Menu</a>
     ${children}
