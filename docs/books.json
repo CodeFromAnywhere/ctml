@@ -1,17 +1,1 @@
-[
-  {
-    "title": "Harry Potter",
-    "author": "J.K. Rowling",
-    "summary": "The guy is a wizard"
-  },
-  {
-    "title": "50 shades of Gray",
-    "author": "Some guy",
-    "summary": "The guy is a bussiness man"
-  },
-  {
-    "title": "Lord of the Rings",
-    "author": "Some other guy",
-    "summary": "The guy is a dwarf"
-  }
-]
+[{"title":"The Matrix","author":"Wachowski Brothers","summary":"Blue pill red pill"},{"title":"The Terminator","author":"Some guy","summary":"Arnold ist macho ja"},{"title":"Lord of the Rings","author":"Some other guy","summary":"It's also a movie"},{"author":"this","summary":"works\r\nwow","title":"test"},{"author":"how ","summary":"are you doing","title":"hey"}]

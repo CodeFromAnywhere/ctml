@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
-import { parseFileRecursive, root } from "./parseFileRecursive";
+import { parseFileRecursive } from "./parseFileRecursive";
+import { root } from "./project";
 
 export const parseFile = async (filename: string) => {
   const name = path.parse(filename).name;

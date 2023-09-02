@@ -4,7 +4,7 @@ import { getObjectKeysArray } from "js-util";
 import path from "path";
 import { tryParseCsv } from "csv-util";
 import { readJsonFileSync } from "read-json-file";
-import { root } from "./parseFileRecursive";
+import { root } from "./project";
 
 export const getDataFilePath = (tag: string) => {
   if (tag.endsWith(".json")) {

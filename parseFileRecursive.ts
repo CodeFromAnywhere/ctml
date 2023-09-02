@@ -1,10 +1,9 @@
 import path from "path";
 import fs from "fs/promises";
 import { Converter } from "showdown";
-import { load } from "cheerio";
-import { getObjectKeysArray } from "js-util";
 import { format } from "prettier";
 import { replaceDataTagNames } from "./replaceDataTagNames";
+import { root } from "./project";
 const converter = new Converter();
 
 /* todo:
@@ -13,7 +12,6 @@ const converter = new Converter();
 3. open index.html and see what happens
 */
 export const extensionPriorityOrder = ["htm", "md", "json", "csv", "ts", "js"];
-export const root = path.join(import.meta.dir, "docs");
 export const files = await fs.readdir(root);
 export const nonHtmlFiles = files.filter((p) => path.parse(p).ext !== ".html");
 
@@ -144,6 +142,7 @@ export const parseFileRecursive = async (config: {
   });
 
   const htmlWithData = replaceDataTagNames(transformed, dataTagNames);
+
   // TODO: Fix bug where it adds quotes
   return format(htmlWithData, { parser: "html", singleQuote: true });
 };

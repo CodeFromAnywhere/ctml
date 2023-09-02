@@ -13,4 +13,4 @@ Design Goals:
 - Build an AI friendly internet
 - Having fun building a personal website in a language no-one knows
 
-wow
+Let me know if you like it. :D

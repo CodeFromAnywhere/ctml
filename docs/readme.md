@@ -20,3 +20,5 @@ Last but not least,
 - connecting this to a website + github
 - executing server-side js/ts code for a post request, and getting a server-response back
 - frontmatter in markdown as variables for the wrapper?
+
+:D
