@@ -1,0 +1,50 @@
+<html>
+
+<head>
+  <title>${title}</title>
+  <link rel="stylesheet" href="css.css" />
+  <script>
+    //  @ts-check
+
+    // useful little script to ensure the page refreshes when we go there again.
+    // especially useful as "devmode"
+    window.onblur = function () {
+      window.onfocus = function () {
+        window.location = self.location;
+      }
+    };
+  </script>
+  <script>
+    const closeMenu = () => {
+      document.getElementById('menu')?.style.setProperty('visibility', 'hidden')
+      document.getElementById('open-menu')?.removeAttribute('style');
+    };
+
+    const openMenu = () => {
+      document.getElementById('menu')?.style.setProperty('visibility', 'visible')
+      document.getElementById('open-menu')?.style.setProperty('visibility', 'hidden')
+    };
+
+    window.onload = () => {
+      console.log(localStorage.getItem("isMenuHidden"));
+      if (localStorage.getItem('isMenuHidden')) {
+        closeMenu();
+      }
+    }
+
+  </script>
+</head>
+
+<body style="margin:0; font-family: 'Courier New', Courier, monospace">
+  <menu></menu>
+  <div style="margin-left: 25%; padding: 1px 16px; height: 1000px;">
+    <a id="open-menu" style="visibility: hidden;" href="#open-menu" onclick="
+     openMenu();
+     localStorage.removeItem('isMenuHidden'); 
+      ">Open Menu</a>
+
+    ${children}
+  </div>
+</body>
+
+</html>

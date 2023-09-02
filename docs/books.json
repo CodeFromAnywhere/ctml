@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Harry Potter",
+    "author": "J.K. Rowling",
+    "summary": "The guy is a wizard"
+  },
+  {
+    "title": "50 shades of Gray",
+    "author": "Some guy",
+    "summary": "The guy is a bussiness man"
+  },
+  {
+    "title": "Lord of the Rings",
+    "author": "Some other guy",
+    "summary": "The guy is a dwarf"
+  }
+]

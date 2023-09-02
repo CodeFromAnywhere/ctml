@@ -1,0 +1,20 @@
+<div style="flex: auto; flex-direction: row; justify-content: space-between;">
+
+    <div style="flex:auto; flex-direction: row; padding: 10px;">
+        <img id="discord" onclick="
+//alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
+//document.getElementById('discord').remove();
+
+document.getElementById('discord').setAttribute('style','background-color: aqua;');
+
+preventDefault();
+      " src="discord.svg" width="40" height="40" />
+
+        <a href="https://github.com/CodeFromAnywhere/ctml"><img src="github.svg" width="40" height="40" /></a>
+    </div>
+
+    <span onclick="
+    closeMenu(); 
+    localStorage.setItem('isMenuHidden','true');
+    ">CLOSE</span>
+</div>

@@ -1,0 +1,31 @@
+<nav id="menu" style="
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    display: block;
+    background-color: #404040;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  ">
+
+
+  <menu-icons></menu-icons>
+
+  <ul style="list-style-type: none; margin: 0; padding: 0">
+    <menu>
+      <a style="text-decoration: none;" title="${title}" href="${href}.html">
+        <li class="menu-item" style="padding: 10px; color: #ffffff;">${title}</li>
+      </a>
+    </menu>
+  </ul>
+</nav>
+<style>
+  .menu-item:hover {
+    background-color: darkblue;
+  }
+
+  .menu-item:active {
+    background-color: darkgreen;
+  }
+</style>
