@@ -10,6 +10,7 @@ I don't know if it will work, but the idea is simple: avoid javascript at all co
 
 Design Goals:
 
+- Supercharge raw html, md, and data-files as much as possible. No fancy languages needed.
 - Minimise source token size
 - LoB: Locality of Behavior for increased comprehension (Read more [here](https://htmx.org/essays/locality-of-behaviour/) and [here](https://www.dreamsongs.com/Files/PatternsOfSoftware.pdf))
 - Build an AI friendly internet
