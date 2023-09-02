@@ -7,3 +7,7 @@ I don't know yet exactly where I want to go with this. ctml could be component d
 Something like mdx but i don't want to need a server. It should build to html quickly, but I want to be in control of how it looks.
 
 What if it would support md, js, ts, json, csv, xml, all out of the box? That would be pretty cool.
+
+![overview](./overview.drawio.png)
+
+Here you can see an overview

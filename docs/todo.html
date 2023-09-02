@@ -39,7 +39,12 @@
     </script>
   </head>
 
-  <body style="margin: 0; font-family: 'Courier New', Courier, monospace">
+  <body
+    style="
+      margin: 0;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    "
+  >
     <html>
       <head></head>
       <body>
@@ -242,6 +247,10 @@ preventDefault();
       </ul>
       <h1 id="parsing">Parsing:</h1>
       <ul>
+        <li>
+          attach all parameters that weren't used as variables to the outer
+          element of the component
+        </li>
         <li>
           support for folders while location of a file isn't important as the
           page is served without folder prefix

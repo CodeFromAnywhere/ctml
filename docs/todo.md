@@ -16,6 +16,7 @@
 
 # Parsing:
 
+- attach all parameters that weren't used as variables to the outer element of the component
 - support for folders while location of a file isn't important as the page is served without folder prefix
 - functionality to match against most nearby file with name (unique naming not enforced)
 - parser performance
