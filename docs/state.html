@@ -19,6 +19,7 @@
           .getElementById('menu')
           ?.style.setProperty('visibility', 'hidden');
         document.getElementById('open-menu')?.removeAttribute('style');
+        localStorage.setItem('isMenuHidden', 'true');
       };
 
       const openMenu = () => {
@@ -28,6 +29,7 @@
         document
           .getElementById('open-menu')
           ?.style.setProperty('visibility', 'hidden');
+        localStorage.removeItem('isMenuHidden');
       };
 
       window.onload = () => {
@@ -64,21 +66,24 @@
         >
           <div
             style="
-              flex: auto;
+              display: flex;
+              flex: 1;
               flex-direction: row;
               justify-content: space-between;
+              align-items: center;
             "
           >
             <div style="flex: auto; flex-direction: row; padding: 10px">
               <img
                 id="discord"
                 onclick="
-//alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
-//document.getElementById('discord').remove();
+//@ts-check
 
-document.getElementById('discord').setAttribute('style','background-color: aqua;');
+alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
+document.getElementById('discord')?.remove();
 
-preventDefault();
+// document.getElementById('discord').setAttribute('style','background-color: aqua;');
+
       "
                 src="discord.svg"
                 width="40"
@@ -91,11 +96,9 @@ preventDefault();
             </div>
 
             <span
-              onclick="
-    closeMenu(); 
-    localStorage.setItem('isMenuHidden','true');
-    "
-              >CLOSE</span
+              style="color: white; font-size: 32px; cursor: pointer"
+              onclick="closeMenu()"
+              >&nbsp;X&nbsp;</span
             >
           </div>
 
@@ -111,11 +114,11 @@ preventDefault();
             <span>
               <a
                 style="text-decoration: none"
-                title="My story"
-                href="story.html"
+                title="Walkthrough"
+                href="walkthrough.html"
               >
                 <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  My story
+                  Walkthrough
                 </li>
               </a>
             </span>
@@ -123,23 +126,11 @@ preventDefault();
             <span>
               <a
                 style="text-decoration: none"
-                title="Parser"
-                href="parser.html"
-              >
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Parser
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a
-                style="text-decoration: none"
-                title="Serving it"
+                title="Serving"
                 href="serving.html"
               >
                 <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Serving it
+                  Serving
                 </li>
               </a>
             </span>
@@ -153,49 +144,9 @@ preventDefault();
             </span>
 
             <span>
-              <a
-                style="text-decoration: none"
-                title="Parsetime"
-                href="parsetime.html"
-              >
+              <a style="text-decoration: none" title="Roadmap" href="todo.html">
                 <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Parsetime
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a style="text-decoration: none" title="Speed" href="speed.html">
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Speed
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a style="text-decoration: none" title="Books" href="books.html">
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Books
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a
-                style="text-decoration: none"
-                title="Movies"
-                href="movies.html"
-              >
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Movies
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a style="text-decoration: none" title="Todo" href="todo.html">
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Todo
+                  Roadmap
                 </li>
               </a>
             </span>
@@ -213,27 +164,106 @@ preventDefault();
       </body>
     </html>
 
-    <div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
+    <div style="margin-left: 25%; padding: 1px 32px; height: 1000px">
       <a
         id="open-menu"
         style="visibility: hidden"
         href="#open-menu"
-        onclick="
-     openMenu();
-     localStorage.removeItem('isMenuHidden'); 
-      "
+        onclick="openMenu();"
         >Open Menu</a
       >
+      <p>There are many different ways to handle state.</p>
+      <p>CTML encourages the following:</p>
+      <h1 id="domassot">DOM as SOT:</h1>
+      <p>
+        The DOM is your source of truth for local unpersisted state. For
+        example, removing a property from an html element can be done like so:
+      </p>
+      <pre><code class="html language-html">&lt;div onclick="document.getElementById('some-element-id')?.remove();"&gt;...&lt;/div&gt;
+</code></pre>
+      <p>
+        As an example, try clicking the discord icon on the menu, and it will be
+        hidden (after the alert).
+      </p>
+      <h1 id="localpersistence">Local persistence</h1>
+      <p>
+        If you want the user to keep certain state persisted, it's easy enough
+        to use <code>localStorage</code> directly. Here is an exammple where two
+        functions are created that alter the dom and persist this behavior using
+        <code>localStorage</code>
+      </p>
+      <pre><code class="html language-html">&lt;script&gt;
+  const closeMenu = () =&gt; {
+    document.getElementById("menu")?.style.setProperty("visibility", "hidden");
+    document.getElementById("open-menu")?.removeAttribute("style");
+    localStorage.setItem("isMenuHidden", "true");
+  };
 
+  const openMenu = () =&gt; {
+    document.getElementById("menu")?.style.setProperty("visibility", "visible");
+    document
+      .getElementById("open-menu")
+      ?.style.setProperty("visibility", "hidden");
+    localStorage.removeItem("isMenuHidden");
+  };
+
+  window.onload = () =&gt; {
+    console.log(localStorage.getItem("isMenuHidden"));
+    if (localStorage.getItem("isMenuHidden")) {
+      closeMenu();
+    }
+  };
+&lt;/script&gt;
+</code></pre>
       <p>
-        I'm not sure yet how to handle state and how to persist it, but I think
-        it'd be cool to do this in the very same json source files, on the edge.
+        To see this example in action, click the (X) on the menu, and referesh
+        your page.
       </p>
+      <h1 id="sharedstate">Shared state</h1>
       <p>
-        Non-persistent state can of course be done with simple js scripts, but
-        maybe I'll come up with a better, react-like syntax, if I feel the need.
+        State that must be shared between users is usually stored in your
+        backend server or in some remote database. CTML encourages to share
+        state right on your edge using static files. How these files get there
+        and how they are altered is up to you.
       </p>
-      <p>But it must be very simple!</p>
+      <p>Consider you have <code>movies.json</code> in your static files:</p>
+      <pre><code class="json language-json">[
+  {
+    "title": "The Matrix",
+    "author": "Wachowski Brothers",
+    "summary": "Blue pill red pill"
+  },
+  {
+    "title": "The Terminator",
+    "author": "Some guy",
+    "summary": "Arnold ist macho ja"
+  },
+  {
+    "title": "Lord of the Rings",
+    "author": "Some other guy",
+    "summary": "It's also a movie"
+  }
+]
+</code></pre>
+      <p>
+        You can now render this in your html by doing something like this in
+        <code>movies.htm</code>
+      </p>
+      <pre><code class="html language-html">&lt;wrapper title="Movies"&gt;
+  &lt;h1&gt;Movies page&lt;/h1&gt;
+  &lt;movies&gt;
+    &lt;p&gt;&lt;b&gt;${title}&lt;/b&gt; by &lt;i&gt;${author}&lt;/i&gt;&lt;/p&gt;
+    &lt;pre markdown&gt;${summary}&lt;/pre&gt;
+  &lt;/movies&gt;
+&lt;/wrapper&gt;
+</code></pre>
+      <p>See the result <a href="movies.html">here</a>.</p>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   </body>
 </html>

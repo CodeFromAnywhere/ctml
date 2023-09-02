@@ -1,0 +1,10 @@
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
+  overscroll-behavior-y: none;
+}

@@ -18,11 +18,13 @@
     const closeMenu = () => {
       document.getElementById('menu')?.style.setProperty('visibility', 'hidden')
       document.getElementById('open-menu')?.removeAttribute('style');
+      localStorage.setItem('isMenuHidden', 'true');
     };
 
     const openMenu = () => {
-      document.getElementById('menu')?.style.setProperty('visibility', 'visible')
-      document.getElementById('open-menu')?.style.setProperty('visibility', 'hidden')
+      document.getElementById('menu')?.style.setProperty('visibility', 'visible');
+      document.getElementById('open-menu')?.style.setProperty('visibility', 'hidden');
+      localStorage.removeItem('isMenuHidden');
     };
 
     window.onload = () => {
@@ -38,13 +40,15 @@
 <body
   style="margin:0; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
   <menu></menu>
-  <div style="margin-left: 25%; padding: 1px 16px; height: 1000px;">
-    <a id="open-menu" style="visibility: hidden;" href="#open-menu" onclick="
-     openMenu();
-     localStorage.removeItem('isMenuHidden'); 
-      ">Open Menu</a>
-
+  <div style="margin-left: 25%; padding: 1px 32px; height: 1000px;">
+    <a id="open-menu" style="visibility: hidden;" href="#open-menu" onclick="openMenu();">Open Menu</a>
     ${children}
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
 </body>
 

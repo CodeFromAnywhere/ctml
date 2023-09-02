@@ -19,6 +19,7 @@
           .getElementById('menu')
           ?.style.setProperty('visibility', 'hidden');
         document.getElementById('open-menu')?.removeAttribute('style');
+        localStorage.setItem('isMenuHidden', 'true');
       };
 
       const openMenu = () => {
@@ -28,6 +29,7 @@
         document
           .getElementById('open-menu')
           ?.style.setProperty('visibility', 'hidden');
+        localStorage.removeItem('isMenuHidden');
       };
 
       window.onload = () => {
@@ -64,21 +66,24 @@
         >
           <div
             style="
-              flex: auto;
+              display: flex;
+              flex: 1;
               flex-direction: row;
               justify-content: space-between;
+              align-items: center;
             "
           >
             <div style="flex: auto; flex-direction: row; padding: 10px">
               <img
                 id="discord"
                 onclick="
-//alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
-//document.getElementById('discord').remove();
+//@ts-check
 
-document.getElementById('discord').setAttribute('style','background-color: aqua;');
+alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
+document.getElementById('discord')?.remove();
 
-preventDefault();
+// document.getElementById('discord').setAttribute('style','background-color: aqua;');
+
       "
                 src="discord.svg"
                 width="40"
@@ -91,11 +96,9 @@ preventDefault();
             </div>
 
             <span
-              onclick="
-    closeMenu(); 
-    localStorage.setItem('isMenuHidden','true');
-    "
-              >CLOSE</span
+              style="color: white; font-size: 32px; cursor: pointer"
+              onclick="closeMenu()"
+              >&nbsp;X&nbsp;</span
             >
           </div>
 
@@ -111,11 +114,11 @@ preventDefault();
             <span>
               <a
                 style="text-decoration: none"
-                title="My story"
-                href="story.html"
+                title="Walkthrough"
+                href="walkthrough.html"
               >
                 <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  My story
+                  Walkthrough
                 </li>
               </a>
             </span>
@@ -123,23 +126,11 @@ preventDefault();
             <span>
               <a
                 style="text-decoration: none"
-                title="Parser"
-                href="parser.html"
-              >
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Parser
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a
-                style="text-decoration: none"
-                title="Serving it"
+                title="Serving"
                 href="serving.html"
               >
                 <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Serving it
+                  Serving
                 </li>
               </a>
             </span>
@@ -153,49 +144,9 @@ preventDefault();
             </span>
 
             <span>
-              <a
-                style="text-decoration: none"
-                title="Parsetime"
-                href="parsetime.html"
-              >
+              <a style="text-decoration: none" title="Roadmap" href="todo.html">
                 <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Parsetime
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a style="text-decoration: none" title="Speed" href="speed.html">
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Speed
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a style="text-decoration: none" title="Books" href="books.html">
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Books
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a
-                style="text-decoration: none"
-                title="Movies"
-                href="movies.html"
-              >
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Movies
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a style="text-decoration: none" title="Todo" href="todo.html">
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Todo
+                  Roadmap
                 </li>
               </a>
             </span>
@@ -213,18 +164,14 @@ preventDefault();
       </body>
     </html>
 
-    <div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
+    <div style="margin-left: 25%; padding: 1px 32px; height: 1000px">
       <a
         id="open-menu"
         style="visibility: hidden"
         href="#open-menu"
-        onclick="
-     openMenu();
-     localStorage.removeItem('isMenuHidden'); 
-      "
+        onclick="openMenu();"
         >Open Menu</a
       >
-
       <p>
         If you want to serve your ctml code, it needs to be parsed to html
         first. For this, the parser is used. It traverses your code recursively
@@ -235,6 +182,36 @@ preventDefault();
         because it is saved as <code>.html</code> while your ctml code must be
         saved as <code>.htm</code>.
       </p>
+      <h1 id="parsetime">Parsetime</h1>
+      <p>
+        Parsing before deploying would create a static website. But what if we
+        parse lazily, jit? This makes it possible for edge-sites to become
+        dynamic.
+      </p>
+      <h2 id="buildingstaticsites">Building static sites</h2>
+      <p>
+        If you want to serve html and other static files rather than a server,
+        you can do so. This removes the possibility for receiving post requests
+        because there won't be a server to receive them. Other than that, it
+        works the same.
+      </p>
+      <h2 id="buildingdynamicsites">Building dynamic sites</h2>
+      <p>
+        If you serve your server (via <code>bun run server.cli.ts</code>) your
+        pages are regenerated when needed and you can also send post-requests.
+      </p>
+      <h1 id="speed">Speed</h1>
+      <p>
+        Once we have html on the edge, things will be fast. But imagine this: we
+        use https://web.dev/link-prefetch/ to prefetch the entire website so
+        everything is literally instant.
+      </p>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   </body>
 </html>

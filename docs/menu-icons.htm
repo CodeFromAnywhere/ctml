@@ -1,20 +1,18 @@
-<div style="flex: auto; flex-direction: row; justify-content: space-between;">
+<div style="display:flex; flex: 1; flex-direction: row; justify-content: space-between; align-items: center;">
 
     <div style="flex:auto; flex-direction: row; padding: 10px;">
         <img id="discord" onclick="
-//alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
-//document.getElementById('discord').remove();
+//@ts-check
 
-document.getElementById('discord').setAttribute('style','background-color: aqua;');
+alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
+document.getElementById('discord')?.remove();
 
-preventDefault();
+// document.getElementById('discord').setAttribute('style','background-color: aqua;');
+
       " src="discord.svg" width="40" height="40" />
 
         <a href="https://github.com/CodeFromAnywhere/ctml"><img src="github.svg" width="40" height="40" /></a>
     </div>
 
-    <span onclick="
-    closeMenu(); 
-    localStorage.setItem('isMenuHidden','true');
-    ">CLOSE</span>
+    <span style="color:white; font-size:32px; cursor: pointer;" onclick="closeMenu()">&nbsp;X&nbsp;</span>
 </div>

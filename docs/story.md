@@ -1,3 +1,5 @@
+# Story
+
 When I was 10 years old and learned html, I always wondered why I couldn't create my own elements, or add properties.
 
 Much later I learned React and saw that Facebook made it possible. But at what cost? JS Fatigue. JS solves all problems, but it comes at a cost: complexity.

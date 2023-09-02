@@ -19,6 +19,7 @@
           .getElementById('menu')
           ?.style.setProperty('visibility', 'hidden');
         document.getElementById('open-menu')?.removeAttribute('style');
+        localStorage.setItem('isMenuHidden', 'true');
       };
 
       const openMenu = () => {
@@ -28,6 +29,7 @@
         document
           .getElementById('open-menu')
           ?.style.setProperty('visibility', 'hidden');
+        localStorage.removeItem('isMenuHidden');
       };
 
       window.onload = () => {
@@ -64,21 +66,24 @@
         >
           <div
             style="
-              flex: auto;
+              display: flex;
+              flex: 1;
               flex-direction: row;
               justify-content: space-between;
+              align-items: center;
             "
           >
             <div style="flex: auto; flex-direction: row; padding: 10px">
               <img
                 id="discord"
                 onclick="
-//alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
-//document.getElementById('discord').remove();
+//@ts-check
 
-document.getElementById('discord').setAttribute('style','background-color: aqua;');
+alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
+document.getElementById('discord')?.remove();
 
-preventDefault();
+// document.getElementById('discord').setAttribute('style','background-color: aqua;');
+
       "
                 src="discord.svg"
                 width="40"
@@ -91,11 +96,9 @@ preventDefault();
             </div>
 
             <span
-              onclick="
-    closeMenu(); 
-    localStorage.setItem('isMenuHidden','true');
-    "
-              >CLOSE</span
+              style="color: white; font-size: 32px; cursor: pointer"
+              onclick="closeMenu()"
+              >&nbsp;X&nbsp;</span
             >
           </div>
 
@@ -111,11 +114,11 @@ preventDefault();
             <span>
               <a
                 style="text-decoration: none"
-                title="My story"
-                href="story.html"
+                title="Walkthrough"
+                href="walkthrough.html"
               >
                 <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  My story
+                  Walkthrough
                 </li>
               </a>
             </span>
@@ -123,23 +126,11 @@ preventDefault();
             <span>
               <a
                 style="text-decoration: none"
-                title="Parser"
-                href="parser.html"
-              >
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Parser
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a
-                style="text-decoration: none"
-                title="Serving it"
+                title="Serving"
                 href="serving.html"
               >
                 <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Serving it
+                  Serving
                 </li>
               </a>
             </span>
@@ -153,49 +144,9 @@ preventDefault();
             </span>
 
             <span>
-              <a
-                style="text-decoration: none"
-                title="Parsetime"
-                href="parsetime.html"
-              >
+              <a style="text-decoration: none" title="Roadmap" href="todo.html">
                 <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Parsetime
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a style="text-decoration: none" title="Speed" href="speed.html">
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Speed
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a style="text-decoration: none" title="Books" href="books.html">
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Books
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a
-                style="text-decoration: none"
-                title="Movies"
-                href="movies.html"
-              >
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Movies
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a style="text-decoration: none" title="Todo" href="todo.html">
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Todo
+                  Roadmap
                 </li>
               </a>
             </span>
@@ -213,15 +164,12 @@ preventDefault();
       </body>
     </html>
 
-    <div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
+    <div style="margin-left: 25%; padding: 1px 32px; height: 1000px">
       <a
         id="open-menu"
         style="visibility: hidden"
         href="#open-menu"
-        onclick="
-     openMenu();
-     localStorage.removeItem('isMenuHidden'); 
-      "
+        onclick="openMenu();"
         >Open Menu</a
       >
 
@@ -233,6 +181,13 @@ preventDefault();
         <textarea name="summary" placeholder="summary"></textarea>
         <button type="submit">Add book</button>
       </form>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   </body>
 </html>

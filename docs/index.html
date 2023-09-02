@@ -19,6 +19,7 @@
           .getElementById('menu')
           ?.style.setProperty('visibility', 'hidden');
         document.getElementById('open-menu')?.removeAttribute('style');
+        localStorage.setItem('isMenuHidden', 'true');
       };
 
       const openMenu = () => {
@@ -28,6 +29,7 @@
         document
           .getElementById('open-menu')
           ?.style.setProperty('visibility', 'hidden');
+        localStorage.removeItem('isMenuHidden');
       };
 
       window.onload = () => {
@@ -64,21 +66,24 @@
         >
           <div
             style="
-              flex: auto;
+              display: flex;
+              flex: 1;
               flex-direction: row;
               justify-content: space-between;
+              align-items: center;
             "
           >
             <div style="flex: auto; flex-direction: row; padding: 10px">
               <img
                 id="discord"
                 onclick="
-//alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
-//document.getElementById('discord').remove();
+//@ts-check
 
-document.getElementById('discord').setAttribute('style','background-color: aqua;');
+alert('We have no community yet. If you feel like this deserves a discord... Let me know.'); 
+document.getElementById('discord')?.remove();
 
-preventDefault();
+// document.getElementById('discord').setAttribute('style','background-color: aqua;');
+
       "
                 src="discord.svg"
                 width="40"
@@ -91,11 +96,9 @@ preventDefault();
             </div>
 
             <span
-              onclick="
-    closeMenu(); 
-    localStorage.setItem('isMenuHidden','true');
-    "
-              >CLOSE</span
+              style="color: white; font-size: 32px; cursor: pointer"
+              onclick="closeMenu()"
+              >&nbsp;X&nbsp;</span
             >
           </div>
 
@@ -111,11 +114,11 @@ preventDefault();
             <span>
               <a
                 style="text-decoration: none"
-                title="My story"
-                href="story.html"
+                title="Walkthrough"
+                href="walkthrough.html"
               >
                 <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  My story
+                  Walkthrough
                 </li>
               </a>
             </span>
@@ -123,23 +126,11 @@ preventDefault();
             <span>
               <a
                 style="text-decoration: none"
-                title="Parser"
-                href="parser.html"
-              >
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Parser
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a
-                style="text-decoration: none"
-                title="Serving it"
+                title="Serving"
                 href="serving.html"
               >
                 <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Serving it
+                  Serving
                 </li>
               </a>
             </span>
@@ -153,49 +144,9 @@ preventDefault();
             </span>
 
             <span>
-              <a
-                style="text-decoration: none"
-                title="Parsetime"
-                href="parsetime.html"
-              >
+              <a style="text-decoration: none" title="Roadmap" href="todo.html">
                 <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Parsetime
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a style="text-decoration: none" title="Speed" href="speed.html">
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Speed
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a style="text-decoration: none" title="Books" href="books.html">
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Books
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a
-                style="text-decoration: none"
-                title="Movies"
-                href="movies.html"
-              >
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Movies
-                </li>
-              </a>
-            </span>
-
-            <span>
-              <a style="text-decoration: none" title="Todo" href="todo.html">
-                <li class="menu-item" style="padding: 10px; color: #ffffff">
-                  Todo
+                  Roadmap
                 </li>
               </a>
             </span>
@@ -213,19 +164,16 @@ preventDefault();
       </body>
     </html>
 
-    <div style="margin-left: 25%; padding: 1px 16px; height: 1000px">
+    <div style="margin-left: 25%; padding: 1px 32px; height: 1000px">
       <a
         id="open-menu"
         style="visibility: hidden"
         href="#open-menu"
-        onclick="
-     openMenu();
-     localStorage.removeItem('isMenuHidden'); 
-      "
+        onclick="openMenu();"
         >Open Menu</a
       >
 
-      <h1 style="color: brown">~~~ CTML ~~~</h1>
+      <h1 style="color: brown">~~~ CTML: Component-driven HTML ~~~</h1>
 
       <h1 id="helloworld">Hello world</h1>
       <p>
@@ -244,8 +192,82 @@ preventDefault();
         What if it would support md, js, ts, json, csv, xml, all out of the box?
         That would be pretty cool.
       </p>
+      <p><em>Here you can see an overview:</em></p>
       <p><img src="./overview.drawio.png" alt="overview" /></p>
-      <p>Here you can see an overview</p>
+      <h1 id="story">Story</h1>
+      <p>
+        When I was 10 years old and learned html, I always wondered why I
+        couldn't create my own elements, or add properties.
+      </p>
+      <p>
+        Much later I learned React and saw that Facebook made it possible. But
+        at what cost? JS Fatigue. JS solves all problems, but it comes at a
+        cost: complexity.
+      </p>
+      <p>
+        That's why I wanted to give this a go: a more intuitive simplistic way
+        to write full-stack apps.
+      </p>
+      <p>
+        I don't know if it will work, but the idea is simple: avoid javascript
+        at all cost, write as much as possible in component-driven html,
+        markdown, and datafiles like csv and json.
+      </p>
+      <p>Design Goals:</p>
+      <ul>
+        <li>Minimise source token size</li>
+        <li>
+          LoB: Locality of Behavior for increased comprehension (Read more
+          <a href="https://htmx.org/essays/locality-of-behaviour/">here</a> and
+          <a href="https://www.dreamsongs.com/Files/PatternsOfSoftware.pdf"
+            >here</a
+          >)
+        </li>
+        <li>Build an AI friendly internet</li>
+        <li>
+          Having fun building a personal website in a language no-one knows
+        </li>
+      </ul>
+      <p>Let me know if you like it. :D</p>
+      <h1 id="parsingrules">Parsing Rules</h1>
+      <ol>
+        <li>html is holy. All html tags are reserved.</li>
+        <li>
+          overwriting an html tag can be done in order to make it act
+          differently everywhere, for example if you want to apply a style.
+        </li>
+        <li>
+          every tag that is not official html refers to (and will 'include') the
+          closest filename that has the same name as the tag, regardless of its
+          extension
+        </li>
+        <li>
+          you can specify the extension in the tagname if you want to be
+          explicit but by default, the priority order is used: htm, json, md,
+          ts, js. html is never included as it is the extension used after
+          parsing.
+        </li>
+        <li>
+          variables can be used with <code>${variable}</code> syntax (like in
+          js) and can be passed into html tags as its attributes.
+        </li>
+        <li>
+          included markdown is parsed to html. markdown can also use html and
+          ctml
+        </li>
+        <li>
+          inluded json is mapped if an array, and its object properties become
+          available as variables (item is main value if it's not an object). csv
+          is also a first-class citizen and works the same.
+        </li>
+      </ol>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   </body>
 </html>

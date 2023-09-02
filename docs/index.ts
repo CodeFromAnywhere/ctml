@@ -2,14 +2,11 @@ export const root = import.meta.dir;
 
 export const pagesToBuild = [
   "index.htm",
-  "speed.md",
-  "story.md",
-  "parser.md",
+  "walkthrough.md",
   "serving.md",
   "state.md",
-  "parsetime.md",
+  "todo.md",
   "books.htm",
   "movies.htm",
   "add-book.htm",
-  "todo.md",
 ];
