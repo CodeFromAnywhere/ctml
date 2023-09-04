@@ -181,29 +181,29 @@ document.getElementById('discord')?.remove();
         onclick="openMenu();"
         >Open Menu</a
       >
-      <h1 id="todo">TODO</h1>
-      <h1 id="docs">Docs</h1>
+      <h1 id="roadmap">Roadmap</h1>
+      <p>
+        I aim to make my own blog website in ctml, but also some other simple
+        websites that I will host on several domains. I aim to make it easy for
+        myself to quickly ship a simple website, as quick as buying a domain,
+        basically.
+      </p>
+      <h2 id="bugs">Bugs</h2>
+      <p>Fix menu persistence</p>
+      <h2 id="integration">Integration</h2>
+      <p>
+        See <a href="migration.html">migration</a>. The initial goal would be to
+        integrate it with my own server so it's served from a domain based on my
+        <code>ManagedDomain</code> database table. If it's turned on for a
+        <code>ManagedDomain</code> entry, it should take priority over React SSR
+        but not completely turn it off necessarily.
+      </p>
+      <h2 id="parsing">Parsing:</h2>
       <ul>
-        <li>concepts overview (in <code>md</code>)</li>
-        <li>add short tutorial</li>
         <li>
-          try hosting it on cloudflares edge in a way that it runs the server
+          ability to scrape routes that need to be built rather than building
+          all and rather than building only by specifying
         </li>
-      </ul>
-      <h1 id="markdown">Markdown</h1>
-      <ul>
-        <li>exposing code files in <code>.md</code></li>
-        <li>frontmatter in markdown as variables for the wrapper</li>
-        <li>
-          markdown-in-html with special tag <code>&lt;markdown&gt;</code> or so
-        </li>
-        <li>ability to add custom md parser to the server</li>
-        <li>
-          ensure that generated html from <code>.md</code> is still parsed again
-        </li>
-      </ul>
-      <h1 id="parsing">Parsing:</h1>
-      <ul>
         <li>
           attach all parameters that weren't used as variables to the outer
           element of the component
@@ -221,6 +221,31 @@ document.getElementById('discord')?.remove();
         <li>only inject auto refresh in dev-mode</li>
         <li>in prod, it only rebuilds stuff after it's stale</li>
       </ul>
+      <h2 id="markdown">Markdown</h2>
+      <ul>
+        <li>
+          ensure that generated html from <code>.md</code> is still parsed again
+        </li>
+        <li>
+          exposing code files in <code>.md</code> and <code>.htm</code> using
+          <code><code src="filename.ts"></code></code>
+        </li>
+        <li>ability to specify the wrapper for markdown specifically</li>
+        <li>frontmatter in markdown as variables for the wrapper</li>
+        <li>
+          listen to other standardised markdown variables too in the wrapper
+          like <code>isPublic/isDraft</code> but also <code>header</code>
+        </li>
+        <li>
+          markdown-in-html with special tag <code>&lt;markdown&gt;</code> or so
+        </li>
+        <li>ability to add custom md parser to the server</li>
+      </ul>
+      <p>
+        <strong
+          >Once I get here… I can build a very nice blog for karsens.com</strong
+        >
+      </p>
       <br />
       <br />
       <br />
