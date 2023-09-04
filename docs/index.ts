@@ -10,4 +10,5 @@ export const pagesToBuild = [
   "books.htm",
   "movies.htm",
   "add-book.htm",
+  "migration.md",
 ];

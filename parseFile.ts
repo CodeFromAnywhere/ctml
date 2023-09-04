@@ -17,8 +17,10 @@ export const parseFile = async (filename: string) => {
   });
 
   if (!html) {
+    console.log("NO HTML");
     return;
   }
 
   await fs.writeFile(path.join(root, name + ".html"), html, "utf8");
+  console.log("DONE", filename);
 };

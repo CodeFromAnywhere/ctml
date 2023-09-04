@@ -1,8 +1,15 @@
 <html>
   <head>
     <title>Hello world</title>
+
+    <!-- TRY THIS ONE https://www.npmjs.com/package/@worker-tools/parsed-html-rewriter?activeTab=readme -->
+    <script src="https://ghuc.cc/worker-tools/html-rewriter/vendor/html_rewriter.js"></script>
+
     <link rel="stylesheet" href="css.css" />
 
+    <script src="devmode.js"></script>
+
+    <!-- https://darkmodejs.learn.uno -->
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
     <script>
       function addDarkmodeWidget() {
@@ -10,43 +17,8 @@
       }
       window.addEventListener('load', addDarkmodeWidget);
     </script>
-    <!-- <script>
-    //  @ts-check
 
-    // useful little script to ensure the page refreshes when we go there again.
-    // especially useful as "devmode"
-    window.onblur = function () {
-      window.onfocus = function () {
-        window.location = self.location;
-      }
-    };
-  </script> -->
-    <script>
-      const closeMenu = () => {
-        document
-          .getElementById('menu')
-          ?.style.setProperty('visibility', 'hidden');
-        document.getElementById('open-menu')?.removeAttribute('style');
-        localStorage.setItem('isMenuHidden', 'true');
-      };
-
-      const openMenu = () => {
-        document
-          .getElementById('menu')
-          ?.style.setProperty('visibility', 'visible');
-        document
-          .getElementById('open-menu')
-          ?.style.setProperty('visibility', 'hidden');
-        localStorage.removeItem('isMenuHidden');
-      };
-
-      window.onload = () => {
-        console.log(localStorage.getItem('isMenuHidden'));
-        if (localStorage.getItem('isMenuHidden')) {
-          closeMenu();
-        }
-      };
-    </script>
+    <script src="open-close-menu.js"></script>
   </head>
 
   <body
@@ -72,6 +44,8 @@
             overflow: auto;
           "
         >
+          <!-- /* visibility: hidden; */ -->
+
           <div
             style="
               display: flex;
@@ -173,6 +147,18 @@ document.getElementById('discord')?.remove();
                 </li>
               </a>
             </span>
+
+            <span>
+              <a
+                style="text-decoration: none"
+                title="Migration"
+                href="migration.html"
+              >
+                <li class="menu-item" style="padding: 10px; color: #ffffff">
+                  Migration
+                </li>
+              </a>
+            </span>
           </ul>
         </nav>
         <style>
@@ -236,8 +222,12 @@ document.getElementById('discord')?.remove();
         at all cost, write as much as possible in component-driven html,
         markdown, and datafiles like csv and json.
       </p>
-      <p>Design Goals:</p>
+      <h1 id="designgoals">Design Goals:</h1>
       <ul>
+        <li>
+          Should be incrementally adoptable into an existing react-website on a
+          per-page basis.
+        </li>
         <li>
           Supercharge raw html, md, and data-files as much as possible. No fancy
           languages needed.
@@ -255,7 +245,17 @@ document.getElementById('discord')?.remove();
           Having fun building a personal website in a language no-one knows
         </li>
       </ul>
-      <p>Let me know if you like it. :D</p>
+      <h1 id="limitations">Limitations:</h1>
+      <ul>
+        <li>Does not have much space for conditional logic.</li>
+        <li>
+          Everything you want to do with javascript needs to be done in raw
+          javascript. I don't know the best way to do this. If you work with raw
+          js, you don't have typesafety, for example. Imports aren't easy to get
+          either.
+        </li>
+      </ul>
+      <p>Let me know what you think</p>
       <h1 id="parsingrules">Parsing Rules</h1>
       <ol>
         <li>html is holy. All html tags are reserved.</li>

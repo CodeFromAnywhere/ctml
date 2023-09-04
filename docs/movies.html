@@ -1,8 +1,15 @@
 <html>
   <head>
     <title>Movies</title>
+
+    <!-- TRY THIS ONE https://www.npmjs.com/package/@worker-tools/parsed-html-rewriter?activeTab=readme -->
+    <script src="https://ghuc.cc/worker-tools/html-rewriter/vendor/html_rewriter.js"></script>
+
     <link rel="stylesheet" href="css.css" />
 
+    <script src="devmode.js"></script>
+
+    <!-- https://darkmodejs.learn.uno -->
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
     <script>
       function addDarkmodeWidget() {
@@ -10,43 +17,8 @@
       }
       window.addEventListener('load', addDarkmodeWidget);
     </script>
-    <!-- <script>
-    //  @ts-check
 
-    // useful little script to ensure the page refreshes when we go there again.
-    // especially useful as "devmode"
-    window.onblur = function () {
-      window.onfocus = function () {
-        window.location = self.location;
-      }
-    };
-  </script> -->
-    <script>
-      const closeMenu = () => {
-        document
-          .getElementById('menu')
-          ?.style.setProperty('visibility', 'hidden');
-        document.getElementById('open-menu')?.removeAttribute('style');
-        localStorage.setItem('isMenuHidden', 'true');
-      };
-
-      const openMenu = () => {
-        document
-          .getElementById('menu')
-          ?.style.setProperty('visibility', 'visible');
-        document
-          .getElementById('open-menu')
-          ?.style.setProperty('visibility', 'hidden');
-        localStorage.removeItem('isMenuHidden');
-      };
-
-      window.onload = () => {
-        console.log(localStorage.getItem('isMenuHidden'));
-        if (localStorage.getItem('isMenuHidden')) {
-          closeMenu();
-        }
-      };
-    </script>
+    <script src="open-close-menu.js"></script>
   </head>
 
   <body
@@ -69,6 +41,8 @@
         overflow: auto;
       "
     >
+      <!-- /* visibility: hidden; */ -->
+
       <div
         style="
           display: flex;
@@ -159,6 +133,18 @@ document.getElementById('discord')?.remove();
           <a style="text-decoration: none" title="Actions" href="actions.html">
             <li class="menu-item" style="padding: 10px; color: #ffffff">
               Actions
+            </li>
+          </a>
+        </span>
+
+        <span>
+          <a
+            style="text-decoration: none"
+            title="Migration"
+            href="migration.html"
+          >
+            <li class="menu-item" style="padding: 10px; color: #ffffff">
+              Migration
             </li>
           </a>
         </span>

@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Page: walkthrough.md</title>
+    <title>Page: migration.md</title>
 
     <!-- TRY THIS ONE https://www.npmjs.com/package/@worker-tools/parsed-html-rewriter?activeTab=readme -->
     <script src="https://ghuc.cc/worker-tools/html-rewriter/vendor/html_rewriter.js"></script>
@@ -181,29 +181,30 @@ document.getElementById('discord')?.remove();
         onclick="openMenu();"
         >Open Menu</a
       >
-      <h1 id="walkthrough">Walkthrough</h1>
+      <h1 id="migratingtoctml">Migrating to CTML</h1>
       <p>
-        Basically CTML allows you to refer to other files by refering to the
-        files using the html syntax.
+        ctml is designed to be as incrementally adoptible as possible without
+        increasing the complexity too much.
       </p>
-      <p><img src="./overview.drawio.png" alt="overview" /></p>
       <p>
-        The parser will always look in the codebase for an <code>.htm</code> or
-        <code>.md</code> or <code>.csv</code> or <code>.json</code> file, for
-        any html tag that occurs.
+        Right now I'm still in the PoC phase (and may never get past that) but I
+        aim to make it super easy to incrementally adopt ctml.
       </p>
+      <p>Ideas:</p>
       <ul>
-        <li><code>.htm</code> is further parsed</li>
-        <li><code>.md</code> is parsed to html</li>
         <li>
-          <code>.csv</code> and <code>.json</code> are looped over, and children
-          are repeated for each item
+          Write good guides on how to do all kinds of things in bare html/css/js
+        </li>
+        <li>
+          Make it possible to use <code>ctml</code> components inside of react
+          (which should be simple html)
+        </li>
+        <li>Make it possible to use entry-points of react inside of ctml</li>
+        <li>
+          Make it possible to run ctml and your react ssr project from the same
+          server, side-by-side.
         </li>
       </ul>
-      <p>
-        These simple rules allow you to build with building blocks much like in
-        React, while staying much closer to actual html.
-      </p>
       <br />
       <br />
       <br />
